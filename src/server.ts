@@ -57,6 +57,15 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).json({ error: 'Internal server error', message: err.message });
 });
 
+// Root route
+app.get('/', (req: Request, res: Response) => {
+    res.json({
+        message: 'Software Requirements API',
+        status: 'Running',
+        documentation: '/api/docs' // Placeholder for future docs
+    });
+});
+
 // 404 handler
 app.use((req: Request, res: Response) => {
     res.status(404).json({ error: 'Route not found' });
